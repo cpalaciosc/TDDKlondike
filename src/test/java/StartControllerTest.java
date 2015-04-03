@@ -41,6 +41,14 @@ public class StartControllerTest {
 		for(int i=0;i<foundations.size();i++){
 			assertEquals(0, foundations.get(i).size());
 		}
+		
+		//Test waste
+		ArrayList<Card> waste = startController.getWaste();
+		assertEquals(0, waste.size());
+		
+		//Test deck
+		ArrayList<Card> deck = startController.getDeck();
+		assertEquals(24, deck.size());
 	}
 	
 
