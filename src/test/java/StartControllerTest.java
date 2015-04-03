@@ -1,3 +1,4 @@
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -33,6 +34,12 @@ public class StartControllerTest {
 					assertFalse(tableaus.get(i).get(j).isVisible());
 				}
 			}
+		}
+		
+		//Test foundations
+		ArrayList<ArrayList<Card>> foundations = startController.getFoundations();
+		for(int i=0;i<foundations.size();i++){
+			assertEquals(0, foundations.get(i).size());
 		}
 	}
 	
