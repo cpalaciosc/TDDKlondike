@@ -23,12 +23,7 @@ public class StartController extends KlondikeController {
 		for(int i=0;i<4;i++){
 			foundations.add(new ArrayList<Card>());
 		}
-		
-		//Create Foundations
-		for(int i=0;i<4;i++){
-			foundations.add(new ArrayList<Card>());
-		}
-				
+						
 		//Create Deck
 		for(int i=0;i<24;i++){
 			deck.add(new Card(false));
