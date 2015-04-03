@@ -1,3 +1,6 @@
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import java.util.ArrayList;
 
 import org.junit.Before;
@@ -21,7 +24,16 @@ public class StartControllerTest {
 		startController.start();
 		
 		//Test tableau
-		ArrayList<ArrayList<Card>> tableaus = startController.getTableaus();	
+		ArrayList<ArrayList<Card>> tableaus = startController.getTableaus();
+		for(int i=0;i<tableaus.size();i++){
+			int lastCard = tableaus.get(i).size()-1;
+			assertTrue(tableaus.get(i).get(lastCard).isVisible());
+			if(i>0){
+				for(int j=0;j<tableaus.get(i).size()-1;j++){
+					assertFalse(tableaus.get(i).get(j).isVisible());
+				}
+			}
+		}
 	}
 	
 
