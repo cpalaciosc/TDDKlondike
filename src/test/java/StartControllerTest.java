@@ -1,10 +1,9 @@
-import static org.junit.Assert.*;
-
 import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import models.Card;
 import controllers.StartController;
 
 
@@ -20,7 +19,9 @@ public class StartControllerTest {
 	@Test
 	public void startGametest() {
 		startController.start();
-			
+		
+		//Test tableau
+		ArrayList<ArrayList<Card>> tableaus = startController.getTableaus();	
 	}
 	
 
