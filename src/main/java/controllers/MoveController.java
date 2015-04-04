@@ -22,8 +22,8 @@ public class MoveController extends KlondikeController {
 		return this.draw.getCards().size()>=3 ? 3 : this.draw.getCards().size();
 	}
 
-	public void moveFromWasteToFoundation(CardType heart) {
-		
+	public boolean moveFromWasteToFoundation(CardType heart) {
+		return false;
 	}
 
 }

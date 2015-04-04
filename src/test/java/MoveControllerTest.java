@@ -1,4 +1,4 @@
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,14 +48,15 @@ public class MoveControllerTest {
 		moveController = new MoveController(0,0);
 		Card card1 = new Card(10,CardType.CLUB,true);
 		Card card2 = new Card(10,CardType.HEART,true);
-		Card card3 = new Card(10,CardType.SPADE,true);
+		Card card3 = new Card(1,CardType.SPADE,true);
 		List<Card> cards = new ArrayList<Card>();
 		cards.add(card1);
 		cards.add(card2);
 		cards.add(card3);
 		this.moveController.getWaste().assignCards(cards);
 		
-		this.moveController.moveFromWasteToFoundation(CardType.HEART);
+		assertFalse(this.moveController.moveFromWasteToFoundation(CardType.HEART));
+		assertTrue(this.moveController.moveFromWasteToFoundation(CardType.SPADE));
 	}
 
 }
