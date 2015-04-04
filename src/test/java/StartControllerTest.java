@@ -26,7 +26,9 @@ public class StartControllerTest {
 		
 		//Test tableau
 		ArrayList<ArrayList<Card>> tableaus = startController.getTableaus();
+				
 		for(int i=0;i<tableaus.size();i++){
+			assertEquals(i+1,tableaus.get(i).size());
 			int lastCard = tableaus.get(i).size()-1;
 			assertTrue(tableaus.get(i).get(lastCard).isVisible());
 			if(i>0){
