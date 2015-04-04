@@ -1,6 +1,5 @@
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import controllers.MoveController;
@@ -9,30 +8,33 @@ import controllers.MoveController;
 public class MoveControllerTest {
 
 	private MoveController moveController;
-	
-	@Before
-	public void before(){
-		moveController = new MoveController(20);
-	}
-	
+		
 	@Test
 	public void testMoveDrawToWaste() {
-		moveController.moveFromDrawToWaste();
-
-		int drawLength = moveController.getDraw().getCards().size();
+		moveController = new MoveController(2,2);
+		moveController.moveFromDrawToWaste();		
+		assertEquals(1, moveController.getDraw().getCards().size());
+		assertEquals(3, moveController.getWaste().getCards().size());
 		
-		if(drawLength>3){
-			moveController.moveFromDrawToWaste();
-			assertEquals(moveController.getDraw().getCards().size(), drawLength-3);
-		}
-		else if(drawLength==2){
-			moveController.moveFromDrawToWaste();
-			assertEquals(moveController.getDraw().getCards().size(), drawLength-2);
-		}
-		else if(drawLength==1){
-			moveController.moveFromDrawToWaste();
-			assertEquals(moveController.getDraw().getCards().size(), drawLength-1);
-		}
+		moveController = new MoveController(1,3);
+		moveController.moveFromDrawToWaste();		
+		assertEquals(1, moveController.getDraw().getCards().size());
+		assertEquals(3, moveController.getWaste().getCards().size());
+		
+		moveController = new MoveController(0,3);
+		moveController.moveFromDrawToWaste();		
+		assertEquals(0, moveController.getDraw().getCards().size());
+		assertEquals(3, moveController.getWaste().getCards().size());	
+		
+		moveController = new MoveController(20,0);
+		moveController.moveFromDrawToWaste();		
+		assertEquals(17, moveController.getDraw().getCards().size());
+		assertEquals(3, moveController.getWaste().getCards().size());
+		
+		moveController = new MoveController(20,2);
+		moveController.moveFromDrawToWaste();		
+		assertEquals(19, moveController.getDraw().getCards().size());
+		assertEquals(3, moveController.getWaste().getCards().size());
 	}
 
 }

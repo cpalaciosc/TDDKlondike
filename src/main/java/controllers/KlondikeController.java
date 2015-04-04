@@ -37,4 +37,10 @@ public class KlondikeController {
 			draw.getCards().add(new Card(false));
 		}
 	}
+	
+	protected void createWaste(int wasteSize) {
+		for (int i = 0; i < wasteSize; i++) {
+			waste.getCards().add(new Card(false));
+		}
+	}
 }
