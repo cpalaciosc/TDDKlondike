@@ -1,5 +1,7 @@
 package controllers;
 
+import models.CardType;
+
 public class MoveController extends KlondikeController {
 
 	public MoveController(int drawSize, int wasteSize) {
@@ -18,6 +20,10 @@ public class MoveController extends KlondikeController {
 	
 	private int cardsToMove(){
 		return this.draw.getCards().size()>=3 ? 3 : this.draw.getCards().size();
+	}
+
+	public void moveFromWasteToFoundation(CardType heart) {
+		
 	}
 
 }
