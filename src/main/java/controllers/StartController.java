@@ -16,9 +16,9 @@ public class StartController extends KlondikeController {
 			Deck tableau = new Deck();
 			for (int j = 0; j <= i; j++) {
 				if (j == i)
-					tableau.add(new Card(true));
+					tableau.getCards().add(new Card(true));
 				else
-					tableau.add(new Card(false));
+					tableau.getCards().add(new Card(false));
 			}
 			this.tableaus.add(tableau);
 		}
@@ -32,7 +32,7 @@ public class StartController extends KlondikeController {
 
 	private void createDraw() {
 		for (int i = 0; i < this.NUM_DRAW; i++) {
-			draw.add(new Card(false));
+			draw.getCards().add(new Card(false));
 		}
 	}
 }

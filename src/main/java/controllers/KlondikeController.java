@@ -1,6 +1,8 @@
 package controllers;
 
 import java.util.ArrayList;
+
+import models.Card;
 import models.Deck;
 
 public class KlondikeController {
@@ -28,5 +30,11 @@ public class KlondikeController {
 
 	public Deck getDraw() {
 		return this.draw;
+	}
+	
+	protected void createDraw(int drawSize) {
+		for (int i = 0; i < drawSize; i++) {
+			draw.getCards().add(new Card(false));
+		}
 	}
 }

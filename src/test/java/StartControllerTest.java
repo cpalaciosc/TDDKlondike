@@ -28,12 +28,12 @@ public class StartControllerTest {
 		ArrayList<Deck> tableaus = startController.getTableaus();
 				
 		for(int i=0;i<tableaus.size();i++){
-			assertEquals(i+1,tableaus.get(i).size());
-			int lastCard = tableaus.get(i).size()-1;
-			assertTrue(tableaus.get(i).get(lastCard).isVisible());
+			assertEquals(i+1,tableaus.get(i).getCards().size());
+			int lastCard = tableaus.get(i).getCards().size()-1;
+			assertTrue(tableaus.get(i).getCards().get(lastCard).isVisible());
 			if(i>0){
-				for(int j=0;j<tableaus.get(i).size()-1;j++){
-					assertFalse(tableaus.get(i).get(j).isVisible());
+				for(int j=0;j<tableaus.get(i).getCards().size()-1;j++){
+					assertFalse(tableaus.get(i).getCards().get(j).isVisible());
 				}
 			}
 		}
@@ -41,16 +41,16 @@ public class StartControllerTest {
 		//Test foundations
 		ArrayList<Deck> foundations = startController.getFoundations();
 		for(int i=0;i<foundations.size();i++){
-			assertEquals(0, foundations.get(i).size());
+			assertEquals(0, foundations.get(i).getCards().size());
 		}
 		
 		//Test waste
 		Deck waste = startController.getWaste();
-		assertEquals(0, waste.size());
+		assertEquals(0, waste.getCards().size());
 		
 		//Test draw
 		Deck draw = startController.getDraw();
-		assertEquals(24, draw.size());
+		assertEquals(24, draw.getCards().size());
 	}
 	
 
