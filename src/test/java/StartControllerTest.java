@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import models.Card;
+import models.Deck;
 import controllers.StartController;
 
 
@@ -25,7 +25,7 @@ public class StartControllerTest {
 		startController.start();
 		
 		//Test tableau
-		ArrayList<ArrayList<Card>> tableaus = startController.getTableaus();
+		ArrayList<Deck> tableaus = startController.getTableaus();
 				
 		for(int i=0;i<tableaus.size();i++){
 			assertEquals(i+1,tableaus.get(i).size());
@@ -39,18 +39,18 @@ public class StartControllerTest {
 		}
 		
 		//Test foundations
-		ArrayList<ArrayList<Card>> foundations = startController.getFoundations();
+		ArrayList<Deck> foundations = startController.getFoundations();
 		for(int i=0;i<foundations.size();i++){
 			assertEquals(0, foundations.get(i).size());
 		}
 		
 		//Test waste
-		ArrayList<Card> waste = startController.getWaste();
+		Deck waste = startController.getWaste();
 		assertEquals(0, waste.size());
 		
-		//Test deck
-		ArrayList<Card> deck = startController.getDeck();
-		assertEquals(24, deck.size());
+		//Test draw
+		Deck draw = startController.getDraw();
+		assertEquals(24, draw.size());
 	}
 	
 

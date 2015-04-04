@@ -1,15 +1,14 @@
 package controllers;
 
-import java.util.ArrayList;
-
 import models.Card;
+import models.Deck;
 
 public class StartController extends KlondikeController {
 	
 	public void start() {
 		//Create Tableau
 		for(int i=0;i<7;i++){
-			ArrayList<Card> tableau = new ArrayList<Card>();
+			Deck tableau = new Deck();
 			for(int j=0;j<=i;j++){
 				if(j==i)
 					tableau.add(new Card(true));
@@ -21,12 +20,12 @@ public class StartController extends KlondikeController {
 		
 		//Create Foundations
 		for(int i=0;i<4;i++){
-			foundations.add(new ArrayList<Card>());
+			foundations.add(new Deck());
 		}
 						
-		//Create Deck
+		//Create draw
 		for(int i=0;i<24;i++){
-			deck.add(new Card(false));
+			draw.add(new Card(false));
 		}
 	}
 }
