@@ -8,20 +8,16 @@ public class MoveController extends KlondikeController {
 	}
 	
 	public void moveFromDrawToWaste() {
-		this.moveFromWasteToDraw();
-		if(this.draw.getCards().size()>=3){
-			this.waste.assignCards(this.draw.moveCards(3));
-		}
-		else if(this.draw.getCards().size()==2){
-			this.waste.assignCards(this.draw.moveCards(2));
-		}
-		else if(this.draw.getCards().size()==1){
-			this.waste.assignCards(this.draw.moveCards(1));
-		}
+		this.moveFromWasteToDraw();		
+		this.waste.assignCards(this.draw.moveCards(this.cardsToMove()));
 	}
 	
 	private void moveFromWasteToDraw(){
 		this.draw.addCards(this.waste.moveCards(this.waste.getCards().size()));
+	}
+	
+	private int cardsToMove(){
+		return this.draw.getCards().size()>=3 ? 3 : this.draw.getCards().size();
 	}
 
 }
