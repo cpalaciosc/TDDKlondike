@@ -7,7 +7,7 @@ public class StartController extends KlondikeController {
 	
 	public void start() {
 		//Create Tableau
-		for(int i=0;i<7;i++){
+		for(int i=0;i<this.NUM_TABLEAU;i++){
 			Deck tableau = new Deck();
 			for(int j=0;j<=i;j++){
 				if(j==i)
@@ -19,12 +19,12 @@ public class StartController extends KlondikeController {
 		}
 		
 		//Create Foundations
-		for(int i=0;i<4;i++){
+		for(int i=0;i<this.NUM_FOUNDATIONS;i++){
 			foundations.add(new Deck());
 		}
 						
 		//Create draw
-		for(int i=0;i<24;i++){
+		for(int i=0;i<this.NUM_DRAW;i++){
 			draw.add(new Card(false));
 		}
 	}
