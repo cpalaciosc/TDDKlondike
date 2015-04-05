@@ -1,6 +1,8 @@
 package controllers;
 
 import models.Card;
+import models.Deck;
+import models.Foundations;
 import models.Klondike;
 
 public class KlondikeController {
@@ -25,5 +27,17 @@ public class KlondikeController {
 		for (int i = 0; i < wasteSize; i++) {
 			klondike.getWaste().getCards().add(new Card(false));
 		}
+	}
+	
+	protected Deck getWaste(){
+		return this.klondike.getWaste();
+	}
+	
+	protected Deck getDraw(){
+		return this.klondike.getDraw();
+	}
+	
+	protected Foundations getFoundations(){
+		return this.klondike.getFoundations();
 	}
 }

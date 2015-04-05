@@ -18,25 +18,24 @@ public class MoveController extends KlondikeController {
 	}
 
 	public void moveFromDrawToWaste() {
-		this.moveFromWasteToDraw();		
-		this.getKlondike().getWaste().assignCards(this.getKlondike().getDraw().moveCards(this.cardsToMove()));
+		this.moveFromWasteToDraw();	
+		getWaste().assignCards(getDraw().moveCards(this.cardsToMove()));
 	}
 	
 	private void moveFromWasteToDraw(){
-		this.getKlondike().getDraw().addCards(this.getKlondike().getWaste().moveCards(this.getKlondike().getWaste().getCards().size()));
+		getDraw().addCards(getWaste().moveCards(getWaste().getSize()));
 	}
 	
 	private int cardsToMove(){
-		return this.getKlondike().getDraw().getCards().size()>=3 ? 3 : this.getKlondike().getDraw().getCards().size();
+		final int MAX_CARDS = 3;
+		return getDraw().getCards().size()>=MAX_CARDS ? MAX_CARDS : getDraw().getSize();
 	}
 
 	public boolean moveFromWasteToFoundation(CardType cardType) {
-		Card cardToMove = this.getKlondike().getWaste().getTopCard();
-		System.out.println("Card to move"+ cardToMove);
-		boolean successMove = this.getKlondike().getFoundations().moveCard(cardType, cardToMove);
-		System.out.println("SuccessMove "+successMove);
+		Card cardToMove = getWaste().getTopCard();
+		boolean successMove = getFoundations().moveCard(cardType, cardToMove);
 		if(successMove)
-			this.getKlondike().getWaste().removeTopCard();
+			getWaste().removeTopCard();
 		return successMove;
 	}
 

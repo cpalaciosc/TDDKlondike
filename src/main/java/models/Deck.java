@@ -42,5 +42,9 @@ public class Deck {
 	public void clearDeck(){
 		this.getCards().clear();
 	}
+	
+	public int getSize(){
+		return this.getCards().size();
+	}
 		
 }

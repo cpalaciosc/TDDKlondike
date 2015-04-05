@@ -53,11 +53,11 @@ public class MoveControllerTest {
 	
 	@Test
 	public void testMoveWasteToFoundation(){
-		startController.getKlondike().getFoundations().generateFoundations(CardType.SPADE, 10);
+		startController.getKlondike().getFoundations().generateFoundations(CardType.SPADE, 5);
 		moveController = new MoveController(startController.getKlondike(),0,0);
 		Card card1 = new Card(10,CardType.CLUB,true);
 		Card card2 = new Card(10,CardType.HEART,true);
-		Card card3 = new Card(10,CardType.SPADE,true);
+		Card card3 = new Card(5,CardType.SPADE,true);
 		List<Card> cards = new ArrayList<Card>();
 		cards.add(card1);
 		cards.add(card2);
@@ -66,6 +66,20 @@ public class MoveControllerTest {
 		
 		assertFalse(this.moveController.moveFromWasteToFoundation(CardType.HEART));
 		assertTrue(this.moveController.moveFromWasteToFoundation(CardType.SPADE));
+		
+		startController.getKlondike().getFoundations().generateFoundations(CardType.HEART, 0);
+		moveController = new MoveController(startController.getKlondike(),0,0);
+		card1 = new Card(10,CardType.CLUB,true);
+		card2 = new Card(10,CardType.HEART,true);
+		card3 = new Card(1,CardType.HEART,true);
+		cards = new ArrayList<Card>();
+		cards.add(card1);
+		cards.add(card2);
+		cards.add(card3);
+		this.moveController.getKlondike().getWaste().assignCards(cards);
+		
+		assertFalse(this.moveController.moveFromWasteToFoundation(CardType.DIAMONDS));
+		assertTrue(this.moveController.moveFromWasteToFoundation(CardType.HEART));
 	}
 
 }
