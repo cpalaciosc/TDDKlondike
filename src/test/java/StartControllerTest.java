@@ -26,7 +26,7 @@ public class StartControllerTest {
 		startController.start();
 		
 		//Test tableau
-		ArrayList<Deck> tableaus = startController.getTableaus();
+		ArrayList<Deck> tableaus = startController.getKlondike().getTableaus();
 				
 		for(int i=0;i<tableaus.size();i++){
 			assertEquals(i+1,tableaus.get(i).getCards().size());
@@ -40,17 +40,17 @@ public class StartControllerTest {
 		}
 		
 		//Test foundations
-		Foundations foundations = startController.getFoundations();
+		Foundations foundations = startController.getKlondike().getFoundations();
 		for(int i=0;i<foundations.getDecks().size();i++){
 			assertEquals(0, foundations.getDecks().get(i).getCards().size());
 		}
 		
 		//Test waste
-		Deck waste = startController.getWaste();
+		Deck waste = startController.getKlondike().getWaste();
 		assertEquals(0, waste.getCards().size());
 		
 		//Test draw
-		Deck draw = startController.getDraw();
+		Deck draw = startController.getKlondike().getDraw();
 		assertEquals(24, draw.getCards().size());
 	}
 	

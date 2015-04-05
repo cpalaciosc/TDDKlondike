@@ -2,6 +2,7 @@ package controllers;
 
 import models.Card;
 import models.Deck;
+import models.Klondike;
 
 public class StartController extends KlondikeController {
 
@@ -12,7 +13,7 @@ public class StartController extends KlondikeController {
 	}
 
 	private void createTableau() {
-		for (int i = 0; i < this.NUM_TABLEAU; i++) {
+		for (int i = 0; i < Klondike.NUM_TABLEAU; i++) {
 			Deck tableau = new Deck();
 			for (int j = 0; j <= i; j++) {
 				if (j == i)
@@ -20,19 +21,19 @@ public class StartController extends KlondikeController {
 				else
 					tableau.getCards().add(new Card(false));
 			}
-			this.tableaus.add(tableau);
+			this.getKlondike().getTableaus().add(tableau);
 		}
 	}
 
 	private void createFoundations() {
-		for (int i = 0; i < this.NUM_FOUNDATIONS; i++) {
-			foundations.getDecks().add(new Deck());
+		for (int i = 0; i < Klondike.NUM_FOUNDATIONS; i++) {
+			this.getKlondike().getFoundations().getDecks().add(new Deck());
 		}
 	}
 
 	private void createDraw() {
-		for (int i = 0; i < this.NUM_DRAW; i++) {
-			draw.getCards().add(new Card(false));
+		for (int i = 0; i < Klondike.NUM_DRAW; i++) {
+			this.getKlondike().getDraw().getCards().add(new Card(false));
 		}
 	}
 }

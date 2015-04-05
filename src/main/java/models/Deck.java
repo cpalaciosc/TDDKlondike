@@ -38,5 +38,9 @@ public class Deck {
 	public void removeTopCard() {
 		this.getCards().remove(this.getTopCard());
 	}
+	
+	public void clearDeck(){
+		this.getCards().clear();
+	}
 		
 }

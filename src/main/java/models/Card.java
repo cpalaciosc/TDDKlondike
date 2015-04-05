@@ -28,4 +28,9 @@ public class Card {
 		return this.value;
 	}
 
+	@Override
+	public String toString() {
+		return "Card [visible=" + visible + ", type=" + type + ", value="
+				+ value + "]";
+	}
 }

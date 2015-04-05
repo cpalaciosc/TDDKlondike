@@ -1,47 +1,29 @@
 package controllers;
 
-import java.util.ArrayList;
-
 import models.Card;
-import models.Deck;
-import models.Foundations;
+import models.Klondike;
 
 public class KlondikeController {
 	
-	protected ArrayList<Deck> tableaus = new ArrayList<Deck>();
-	protected Foundations foundations = new Foundations();
-	protected Deck waste = new Deck();
-	protected Deck draw = new Deck();
+	private Klondike klondike = new Klondike();
 	
-	protected final int NUM_FOUNDATIONS=4;
-	protected final int NUM_TABLEAU=7;
-	protected final int NUM_DRAW= 24;
-	
-	public ArrayList<Deck> getTableaus() {
-		return this.tableaus;
+	public Klondike getKlondike() {
+		return klondike;
 	}
 
-	public Foundations getFoundations() {
-		return this.foundations;
+	public void setKlondike(Klondike klondike) {
+		this.klondike = klondike;
 	}
 
-	public Deck getWaste() {
-		return this.waste;
-	}
-
-	public Deck getDraw() {
-		return this.draw;
-	}
-		
 	protected void createDraw(int drawSize) {
 		for (int i = 0; i < drawSize; i++) {
-			draw.getCards().add(new Card(false));
+			klondike.getDraw().getCards().add(new Card(false));
 		}
 	}
 	
 	protected void createWaste(int wasteSize) {
 		for (int i = 0; i < wasteSize; i++) {
-			waste.getCards().add(new Card(false));
+			klondike.getWaste().getCards().add(new Card(false));
 		}
 	}
 }

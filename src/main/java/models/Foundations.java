@@ -11,24 +11,20 @@ public class Foundations {
 	}
 	
 	public Deck getFoundation(CardType type){
-		System.out.println("El card Type "+type);
-		System.out.println("Size del deck "+this.getDecks().size());
 		return this.getDecks().get(type.getIntegerType());
 	}
 
 	public boolean moveCard(CardType cardType, Card cardToMove) {
 		if(cardType == cardToMove.getType()){
 			Card topCard = this.getFoundation(cardType).getTopCard();
-			System.out.println("TopCard "+topCard);
 			if(topCard!=null){
-				if(topCard.getValue()==cardToMove.getValue()+1){
+				if(topCard.getValue()==cardToMove.getValue()-1){
 					this.getFoundation(cardType).addCard(cardToMove);
 					return true;
 				}
 			}
 			else{
 				if(cardToMove.getValue()==1){
-					System.out.println("Top card Vacio");
 					this.getFoundation(cardType).addCard(cardToMove);
 					return true;
 				}
@@ -36,4 +32,12 @@ public class Foundations {
 		}
 		return false;
 	}	
+	
+	public void generateFoundations(CardType type, Integer numberCard){
+		this.getFoundation(type).clearDeck();
+		for(int i=0;i<numberCard;i++){		
+			boolean visible = i==numberCard-1 ? true : false;
+			this.getFoundation(type).addCard(new Card(i,type,visible));
+		}
+	}
 }
