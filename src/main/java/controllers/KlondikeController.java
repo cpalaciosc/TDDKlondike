@@ -1,5 +1,7 @@
 package controllers;
 
+import java.util.ArrayList;
+
 import models.Card;
 import models.Deck;
 import models.Foundations;
@@ -39,5 +41,9 @@ public class KlondikeController {
 	
 	protected Foundations getFoundations(){
 		return this.klondike.getFoundations();
+	}
+	
+	protected ArrayList<Deck> getTableaus(){
+		return this.klondike.getTableaus();
 	}
 }

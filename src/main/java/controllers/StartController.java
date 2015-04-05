@@ -21,19 +21,19 @@ public class StartController extends KlondikeController {
 				else
 					tableau.getCards().add(new Card(false));
 			}
-			this.getKlondike().getTableaus().add(tableau);
+			getTableaus().add(tableau);
 		}
 	}
 
 	private void createFoundations() {
 		for (int i = 0; i < Klondike.NUM_FOUNDATIONS; i++) {
-			this.getKlondike().getFoundations().getDecks().add(new Deck());
+			getFoundations().getDecks().add(new Deck());
 		}
 	}
 
 	private void createDraw() {
 		for (int i = 0; i < Klondike.NUM_DRAW; i++) {
-			this.getKlondike().getDraw().getCards().add(new Card(false));
+			getDraw().getCards().add(new Card(false));
 		}
 	}
 }

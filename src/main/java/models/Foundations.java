@@ -15,23 +15,28 @@ public class Foundations {
 	}
 
 	public boolean moveCard(CardType cardType, Card cardToMove) {
-		if(cardType == cardToMove.getType()){
-			Card topCard = this.getFoundation(cardType).getTopCard();
-			if(topCard!=null){
-				if(topCard.getValue()==cardToMove.getValue()-1){
-					this.getFoundation(cardType).addCard(cardToMove);
-					return true;
-				}
-			}
-			else{
-				if(cardToMove.getValue()==1){
-					this.getFoundation(cardType).addCard(cardToMove);
-					return true;
-				}
-			}
+		boolean equalType = cardType == cardToMove.getType();
+		if(equalType){
+			return addCardToFoundation(cardType, cardToMove);
 		}
-		return false;
+		return equalType;
 	}	
+	
+	private boolean addCardToFoundation(CardType cardType, Card cardToMove){
+		Card topCard = this.getFoundation(cardType).getTopCard();
+		boolean conditionalCard = false;
+		
+		if(topCard!=null)
+			conditionalCard = topCard.getValue()==cardToMove.getValue()-1;
+		else
+			conditionalCard = cardToMove.getValue()==1;
+		
+		if(conditionalCard)
+			this.getFoundation(cardType).addCard(cardToMove);
+		
+		return conditionalCard;
+	}
+
 	
 	public void generateFoundations(CardType type, Integer numberCard){
 		this.getFoundation(type).clearDeck();
