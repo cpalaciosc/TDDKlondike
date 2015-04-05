@@ -4,11 +4,12 @@ import java.util.ArrayList;
 
 import models.Card;
 import models.Deck;
+import models.Foundations;
 
 public class KlondikeController {
 	
 	protected ArrayList<Deck> tableaus = new ArrayList<Deck>();
-	protected ArrayList<Deck> foundations = new ArrayList<Deck>();
+	protected Foundations foundations = new Foundations();
 	protected Deck waste = new Deck();
 	protected Deck draw = new Deck();
 	
@@ -20,7 +21,7 @@ public class KlondikeController {
 		return this.tableaus;
 	}
 
-	public ArrayList<Deck> getFoundations() {
+	public Foundations getFoundations() {
 		return this.foundations;
 	}
 
@@ -31,7 +32,7 @@ public class KlondikeController {
 	public Deck getDraw() {
 		return this.draw;
 	}
-	
+		
 	protected void createDraw(int drawSize) {
 		for (int i = 0; i < drawSize; i++) {
 			draw.getCards().add(new Card(false));

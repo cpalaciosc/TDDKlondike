@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import models.Deck;
+import models.Foundations;
 import controllers.StartController;
 
 
@@ -39,9 +40,9 @@ public class StartControllerTest {
 		}
 		
 		//Test foundations
-		ArrayList<Deck> foundations = startController.getFoundations();
-		for(int i=0;i<foundations.size();i++){
-			assertEquals(0, foundations.get(i).getCards().size());
+		Foundations foundations = startController.getFoundations();
+		for(int i=0;i<foundations.getDecks().size();i++){
+			assertEquals(0, foundations.getDecks().get(i).getCards().size());
 		}
 		
 		//Test waste

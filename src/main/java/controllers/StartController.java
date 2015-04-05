@@ -26,7 +26,7 @@ public class StartController extends KlondikeController {
 
 	private void createFoundations() {
 		for (int i = 0; i < this.NUM_FOUNDATIONS; i++) {
-			foundations.add(new Deck());
+			foundations.getDecks().add(new Deck());
 		}
 	}
 

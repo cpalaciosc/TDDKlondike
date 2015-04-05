@@ -24,5 +24,19 @@ public class Deck {
 	public void addCards(List<Card> cards){
 		this.cards.addAll(cards);
 	}
+
+	public Card getTopCard() {
+		if(this.getCards().isEmpty())
+			return null;
+		return this.getCards().get(this.getCards().size()-1);
+	}
+
+	public void addCard(Card card) {
+		this.getCards().add(card);
+	}
+
+	public void removeTopCard() {
+		this.getCards().remove(this.getTopCard());
+	}
 		
 }
