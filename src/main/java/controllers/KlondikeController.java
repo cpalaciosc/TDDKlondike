@@ -1,11 +1,10 @@
 package controllers;
 
-import java.util.ArrayList;
-
 import models.Card;
 import models.Deck;
 import models.Foundations;
 import models.Klondike;
+import models.Tableaus;
 
 public class KlondikeController {
 	
@@ -43,7 +42,7 @@ public class KlondikeController {
 		return this.klondike.getFoundations();
 	}
 	
-	protected ArrayList<Deck> getTableaus(){
+	protected Tableaus getTableaus(){
 		return this.klondike.getTableaus();
 	}
 }

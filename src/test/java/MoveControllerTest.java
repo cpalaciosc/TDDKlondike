@@ -81,5 +81,15 @@ public class MoveControllerTest {
 		assertFalse(this.moveController.moveFromWasteToFoundation(CardType.DIAMONDS));
 		assertTrue(this.moveController.moveFromWasteToFoundation(CardType.HEART));
 	}
+	
+	@Test
+	public void testMoveTableauToFoundation(){
+		startController.getKlondike().getFoundations().generateFoundations(CardType.DIAMONDS, 4);
+		moveController = new MoveController(startController.getKlondike(),0,0);
+		Card cardToMove = new Card(4,CardType.DIAMONDS,true);
+		moveController.getKlondike().getTableaus().assignTopCardTableau(2, cardToMove);
+		assertTrue(this.moveController.moveFromTableauToFoundation(2,CardType.DIAMONDS));
+		assertFalse(this.moveController.moveFromTableauToFoundation(2,CardType.CLUB));
+	}
 
 }

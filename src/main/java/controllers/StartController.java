@@ -21,7 +21,7 @@ public class StartController extends KlondikeController {
 				else
 					tableau.getCards().add(new Card(false));
 			}
-			getTableaus().add(tableau);
+			getTableaus().getDecks().add(tableau);
 		}
 	}
 

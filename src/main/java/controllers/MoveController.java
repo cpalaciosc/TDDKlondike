@@ -39,4 +39,12 @@ public class MoveController extends KlondikeController {
 		return successMove;
 	}
 
+	public boolean moveFromTableauToFoundation(int tableauPosition, CardType cardType) {
+		Card cardToMove = getTableaus().getTableaus(tableauPosition).getTopCard();
+		boolean successMove = getFoundations().moveCard(cardType, cardToMove);
+		if(successMove)
+			getTableaus().getTableaus(tableauPosition).removeTopCard();
+		return successMove;
+	}
+
 }
