@@ -29,28 +29,28 @@ public class MoveControllerTest {
 	public void testMoveDrawToWaste() {
 		moveController = new MoveController(2,2);
 		moveController.moveFromDrawToWaste();		
-		assertEquals(1, moveController.getKlondike().getDraw().getCards().size());
-		assertEquals(3, moveController.getKlondike().getWaste().getCards().size());
+		assertEquals(1, moveController.getKlondike().getDraw().getSize());
+		assertEquals(3, moveController.getKlondike().getWaste().getSize());
 		
 		moveController = new MoveController(1,3);
 		moveController.moveFromDrawToWaste();		
-		assertEquals(1, moveController.getKlondike().getDraw().getCards().size());
-		assertEquals(3, moveController.getKlondike().getWaste().getCards().size());
+		assertEquals(1, moveController.getKlondike().getDraw().getSize());
+		assertEquals(3, moveController.getKlondike().getWaste().getSize());
 		
 		moveController = new MoveController(0,3);
 		moveController.moveFromDrawToWaste();		
-		assertEquals(0, moveController.getKlondike().getDraw().getCards().size());
-		assertEquals(3, moveController.getKlondike().getWaste().getCards().size());	
+		assertEquals(0, moveController.getKlondike().getDraw().getSize());
+		assertEquals(3, moveController.getKlondike().getWaste().getSize());	
 		
 		moveController = new MoveController(20,0);
 		moveController.moveFromDrawToWaste();		
-		assertEquals(17, moveController.getKlondike().getDraw().getCards().size());
-		assertEquals(3, moveController.getKlondike().getWaste().getCards().size());
+		assertEquals(17, moveController.getKlondike().getDraw().getSize());
+		assertEquals(3, moveController.getKlondike().getWaste().getSize());
 		
 		moveController = new MoveController(20,2);
 		moveController.moveFromDrawToWaste();		
-		assertEquals(19, moveController.getKlondike().getDraw().getCards().size());
-		assertEquals(3, moveController.getKlondike().getWaste().getCards().size());
+		assertEquals(19, moveController.getKlondike().getDraw().getSize());
+		assertEquals(3, moveController.getKlondike().getWaste().getSize());
 	}
 	
 	@Test
