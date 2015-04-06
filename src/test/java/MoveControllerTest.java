@@ -92,6 +92,14 @@ public class MoveControllerTest {
 		Deck deck = moveController.getKlondike().getTableaus().getTableaus(2);
 		assertTrue(this.moveController.moveFromDeckToFoundation(deck,CardType.DIAMONDS));
 		assertFalse(this.moveController.moveFromDeckToFoundation(deck,CardType.CLUB));
+		
+		startController.getKlondike().getFoundations().generateFoundations(CardType.HEART, 10);
+		moveController = new MoveController(startController.getKlondike(),0,0);
+		cardToMove = new Card(10,CardType.HEART,true);
+		moveController.getKlondike().getTableaus().assignTopCardTableau(4, cardToMove);
+		deck = moveController.getKlondike().getTableaus().getTableaus(4);
+		assertTrue(this.moveController.moveFromDeckToFoundation(deck,CardType.HEART));
+		assertFalse(this.moveController.moveFromDeckToFoundation(deck,CardType.SPADE));
 	}
 
 }
