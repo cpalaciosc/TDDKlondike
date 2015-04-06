@@ -5,6 +5,7 @@ import java.util.List;
 
 import models.Card;
 import models.CardType;
+import models.Deck;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -63,9 +64,9 @@ public class MoveControllerTest {
 		cards.add(card2);
 		cards.add(card3);
 		this.moveController.getKlondike().getWaste().assignCards(cards);
-		
-		assertFalse(this.moveController.moveFromWasteToFoundation(CardType.HEART));
-		assertTrue(this.moveController.moveFromWasteToFoundation(CardType.SPADE));
+		Deck deck = moveController.getKlondike().getWaste();
+		assertFalse(this.moveController.moveFromDeckToFoundation(deck, CardType.HEART));
+		assertTrue(this.moveController.moveFromDeckToFoundation(deck, CardType.SPADE));
 		
 		startController.getKlondike().getFoundations().generateFoundations(CardType.HEART, 0);
 		moveController = new MoveController(startController.getKlondike(),0,0);
@@ -78,8 +79,8 @@ public class MoveControllerTest {
 		cards.add(card3);
 		this.moveController.getKlondike().getWaste().assignCards(cards);
 		
-		assertFalse(this.moveController.moveFromWasteToFoundation(CardType.DIAMONDS));
-		assertTrue(this.moveController.moveFromWasteToFoundation(CardType.HEART));
+		assertFalse(this.moveController.moveFromDeckToFoundation(deck, CardType.DIAMONDS));
+		assertTrue(this.moveController.moveFromDeckToFoundation(deck, CardType.HEART));
 	}
 	
 	@Test
@@ -88,8 +89,9 @@ public class MoveControllerTest {
 		moveController = new MoveController(startController.getKlondike(),0,0);
 		Card cardToMove = new Card(4,CardType.DIAMONDS,true);
 		moveController.getKlondike().getTableaus().assignTopCardTableau(2, cardToMove);
-		assertTrue(this.moveController.moveFromTableauToFoundation(2,CardType.DIAMONDS));
-		assertFalse(this.moveController.moveFromTableauToFoundation(2,CardType.CLUB));
+		Deck deck = moveController.getKlondike().getTableaus().getTableaus(2);
+		assertTrue(this.moveController.moveFromDeckToFoundation(deck,CardType.DIAMONDS));
+		assertFalse(this.moveController.moveFromDeckToFoundation(deck,CardType.CLUB));
 	}
 
 }

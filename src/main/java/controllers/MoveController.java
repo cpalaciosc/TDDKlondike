@@ -2,6 +2,7 @@ package controllers;
 
 import models.Card;
 import models.CardType;
+import models.Deck;
 import models.Klondike;
 
 public class MoveController extends KlondikeController {
@@ -31,20 +32,11 @@ public class MoveController extends KlondikeController {
 		return getDraw().getCards().size()>=MAX_CARDS ? MAX_CARDS : getDraw().getSize();
 	}
 
-	public boolean moveFromWasteToFoundation(CardType cardType) {
-		Card cardToMove = getWaste().getTopCard();
+	public boolean moveFromDeckToFoundation(Deck deck, CardType cardType){
+		Card cardToMove = deck.getTopCard();
 		boolean successMove = getFoundations().moveCard(cardType, cardToMove);
 		if(successMove)
-			getWaste().removeTopCard();
+			deck.removeTopCard();
 		return successMove;
 	}
-
-	public boolean moveFromTableauToFoundation(int tableauPosition, CardType cardType) {
-		Card cardToMove = getTableaus().getTableaus(tableauPosition).getTopCard();
-		boolean successMove = getFoundations().moveCard(cardType, cardToMove);
-		if(successMove)
-			getTableaus().getTableaus(tableauPosition).removeTopCard();
-		return successMove;
-	}
-
 }
