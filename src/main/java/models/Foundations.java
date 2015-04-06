@@ -1,14 +1,7 @@
 package models;
 
-import java.util.ArrayList;
-import java.util.List;
 
-public class Foundations {
-	private List<Deck> decks = new ArrayList<Deck>();
-
-	public List<Deck> getDecks() {
-		return decks;
-	}
+public class Foundations extends DeckPile {
 	
 	public Deck getFoundation(CardType type){
 		return this.getDecks().get(type.getIntegerType());
