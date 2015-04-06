@@ -1,3 +1,4 @@
+package tests;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -29,7 +30,7 @@ public class StartControllerTest {
 				
 		for(int i=0;i<tableaus.getSize();i++){
 			assertEquals(i+1,tableaus.getDeckSize(i));
-			assertTrue(tableaus.isLastCardVisibleFromDeck(i));
+			assertTrue(tableaus.isTopCardVisibleFromDeck(i));
 			if(i>0){
 				assertTrue(tableaus.areCardsInvisible(i));
 			}

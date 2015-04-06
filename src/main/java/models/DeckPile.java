@@ -19,13 +19,13 @@ public abstract class DeckPile {
 		return this.decks.get(deck).getSize();
 	}
 	
-	public boolean isLastCardVisibleFromDeck(Integer deck){
-		return this.decks.get(deck).getTopCard().isVisible();
+	public boolean isTopCardVisibleFromDeck(Integer deck){
+		return this.decks.get(deck).isTopCardVisible();
 	}
 	
 	public boolean areCardsInvisible(Integer deck){	
 		for(int j=0;j<decks.get(deck).getSize()-1;j++){
-			if(!decks.get(deck).getCards().get(j).isVisible())
+			if(!decks.get(deck).isCardVisible(j))
 				return true;
 		}
 		return false;

@@ -50,5 +50,13 @@ public class Deck {
 	public void setTopCard(Card card) {
 		this.getCards().set(this.getSize()-1, card);
 	}
+
+	public boolean isCardVisible(int j) {
+		return cards.get(j).isVisible();
+	}
+
+	public boolean isTopCardVisible() {
+		return getTopCard().isVisible();
+	}
 		
 }
