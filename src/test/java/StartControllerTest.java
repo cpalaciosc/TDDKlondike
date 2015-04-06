@@ -1,5 +1,4 @@
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 
@@ -28,30 +27,27 @@ public class StartControllerTest {
 		//Test tableau
 		Tableaus tableaus = startController.getKlondike().getTableaus();
 				
-		for(int i=0;i<tableaus.getDecks().size();i++){
-			assertEquals(i+1,tableaus.getDecks().get(i).getCards().size());
-			int lastCard = tableaus.getDecks().get(i).getCards().size()-1;
-			assertTrue(tableaus.getDecks().get(i).getCards().get(lastCard).isVisible());
+		for(int i=0;i<tableaus.getSize();i++){
+			assertEquals(i+1,tableaus.getDeckSize(i));
+			assertTrue(tableaus.isLastCardVisibleFromDeck(i));
 			if(i>0){
-				for(int j=0;j<tableaus.getDecks().get(i).getCards().size()-1;j++){
-					assertFalse(tableaus.getDecks().get(i).getCards().get(j).isVisible());
-				}
+				assertTrue(tableaus.areCardsInvisible(i));
 			}
 		}
 		
 		//Test foundations
 		Foundations foundations = startController.getKlondike().getFoundations();
-		for(int i=0;i<foundations.getDecks().size();i++){
-			assertEquals(0, foundations.getDecks().get(i).getCards().size());
+		for(int i=0;i<foundations.getSize();i++){
+			assertEquals(0, foundations.getDeckSize(i));
 		}
 		
 		//Test waste
 		Deck waste = startController.getKlondike().getWaste();
-		assertEquals(0, waste.getCards().size());
+		assertEquals(0, waste.getSize());
 		
 		//Test draw
 		Deck draw = startController.getKlondike().getDraw();
-		assertEquals(24, draw.getCards().size());
+		assertEquals(24, draw.getSize());
 	}
 	
 
